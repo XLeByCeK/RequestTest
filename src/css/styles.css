@@ -1,0 +1,152 @@
+/* Font declarations */
+@font-face {
+    font-family: 'Le Murmure';
+    src: url('../fonts/LeMurmure-Regular.woff2') format('woff2'),
+         url('../fonts/LeMurmure-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Le Murmure';
+    src: url('../fonts/LeMurmure-Regular.ttf') format('ttf'),
+        url('../fonts/LeMurmure-Regular.otf') format('otf');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Le Murmure', sans-serif;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Header styles */
+.header {
+    background-color: #9966CC;
+    color: #fff;
+    padding: 0.75rem 0;
+}
+
+.header__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.header__logo a {
+    font-family: 'Le Murmure';
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    display: inline-block;
+    transform: scale(1, 1.5);
+    transform-origin: left;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    padding: 0.2rem 0;
+}
+
+.header__center {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.header__nav {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.header__catalog-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 400;
+    padding: 0.5rem 0;
+}
+
+.dots-icon {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    width: 12px;
+    height: 12px;
+}
+
+.dot {
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.header__nav-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.header__nav-link:hover, .header__catalog-btn:hover, .dot:hover {
+    color: #ccc;
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header__action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 400;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.header__action-btn i {
+    font-size: 0.9rem;
+}
+
+.header__action-btn:hover {
+    color: #ccc;
+}
+
+.header__center .header__action-btn {
+    margin-left: 10rem;
+} 
