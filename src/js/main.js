@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set initial opacity
     mainProduct.style.opacity = '1';
     mainProduct.style.transform = 'translateX(0) scale(1)';
+    mainProduct.style.zIndex = '4';
     
     // Create the compact version of the main product
     const compactMainProduct = createCompactProduct(
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         compactProduct.style.backgroundColor = bgColor;
         compactProduct.style.pointerEvents = 'auto';
         compactProduct.style.cursor = 'pointer';
+        compactProduct.style.zIndex = '5';
         
         const imageContainer = document.createElement('div');
         imageContainer.className = 'side-product-image';
@@ -50,6 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const img = document.createElement('img');
         img.src = imageSrc;
         img.alt = altText;
+        if (number === '01') {
+            img.style.maxWidth = '75%';
+            img.style.margin = '0 auto';
+        }
         
         const footer = document.createElement('div');
         footer.className = 'side-product-footer';
@@ -102,10 +108,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Position side products properly
     positionSideProducts();
     
+    // Initial adjustment for the pink and blue side products
+    adjustSideProducts();
+    
     // Function to create expanded product element
     function createExpandedProduct(content, colorClass) {
         const expandedProduct = document.createElement('div');
         expandedProduct.className = `expanded-product ${colorClass}`;
+        expandedProduct.style.zIndex = '3';
         
         expandedProduct.innerHTML = `
             <div class="product-tag">ТОВАР ДНЯ</div>
@@ -134,6 +144,24 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="background-text">${content.bgText}</div>
         `;
         
+        // Убедимся, что картинки и задние надписи центрированы
+        setTimeout(() => {
+            const productImage = expandedProduct.querySelector('.product-image');
+            const backgroundText = expandedProduct.querySelector('.background-text');
+            
+            if (productImage) {
+                productImage.style.top = '50%';
+                productImage.style.left = '50%';
+                productImage.style.transform = 'translate(-50%, -50%)';
+            }
+            
+            if (backgroundText) {
+                backgroundText.style.top = '50%';
+                backgroundText.style.transform = 'translateY(0)';
+                backgroundText.style.textAlign = 'center';
+            }
+        }, 0);
+        
         return expandedProduct;
     }
     
@@ -141,6 +169,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function positionSideProducts() {
         sideProducts[0].style.right = '245px';
         sideProducts[1].style.right = '10px';
+        sideProducts.forEach(product => {
+            product.style.zIndex = '5';
+        });
+    }
+    
+    // Adjust the side products initial state
+    function adjustSideProducts() {
+        sideProducts.forEach(product => {
+            // Ensure side products are properly sized
+            product.style.height = 'calc(100vh - 40px)';
+            product.style.top = '20px';
+        });
     }
     
     // Slide selection and animations
@@ -216,8 +256,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Show and animate main product
                 mainProduct.style.display = 'flex';
                 mainProduct.style.left = '0';
-                mainProduct.style.width = 'calc(100% - 440px)';
+                mainProduct.style.width = 'calc(100% - 450px)';
                 mainProduct.classList.add('active');
+                mainProduct.style.zIndex = '4';
                 
                 setTimeout(() => {
                     mainProduct.style.opacity = '1';
@@ -234,13 +275,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Show compact version of the first product
                 compactMainProduct.style.display = 'flex';
-                compactMainProduct.style.left = '5px';
+                compactMainProduct.style.left = '15px';
+                compactMainProduct.style.zIndex = '5';
                 
                 // Show and animate expanded pink product in the middle
                 expandedProduct2.style.display = 'flex';
-                expandedProduct2.style.left = '235px';  // Positioned after the compact main product
-                expandedProduct2.style.width = 'calc(100% - 485px)';
+                expandedProduct2.style.left = '250px';  // Positioned after the compact main product
+                expandedProduct2.style.width = 'calc(100% - 490px)';
                 expandedProduct2.classList.add('active');
+                expandedProduct2.style.zIndex = '4';
                 
                 setTimeout(() => {
                     expandedProduct2.style.opacity = '1';
@@ -254,16 +297,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Show compact versions of first and second products
                 compactMainProduct.style.display = 'flex';
-                compactMainProduct.style.left = '5px';
+                compactMainProduct.style.left = '15px';
+                compactMainProduct.style.zIndex = '5';
                 
                 compactSecondProduct.style.display = 'flex';
-                compactSecondProduct.style.left = '235px';
+                compactSecondProduct.style.left = '245px';
+                compactSecondProduct.style.zIndex = '5';
                 
                 // Show and animate expanded blue product (positioned to the right)
                 expandedProduct3.style.display = 'flex';
-                expandedProduct3.style.left = '465px';
-                expandedProduct3.style.width = 'calc(100% - 485px)';
+                expandedProduct3.style.left = '475px';
+                expandedProduct3.style.width = 'calc(100% - 495px)';
                 expandedProduct3.classList.add('active');
+                expandedProduct3.style.zIndex = '4';
                 
                 setTimeout(() => {
                     expandedProduct3.style.opacity = '1';

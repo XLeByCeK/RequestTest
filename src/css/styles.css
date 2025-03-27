@@ -234,12 +234,12 @@ body {
 .product-main {
     flex: 1;
     position: absolute;
-    padding: 6rem 1rem 2rem;
+    padding: 3rem 2rem 2rem;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    max-width: calc(100% - 440px);
-    width: calc(100% - 440px);
+    max-width: calc(100% - 450px);
+    width: calc(100% - 450px);
     height: 100%;
     top: 0;
     left: 0;
@@ -263,8 +263,8 @@ body {
     font-size: 0.85rem;
     font-weight: 500;
     position: absolute;
-    top: 35%;
-    left: 0.5rem;
+    top: 8%;
+    left: 2rem;
     z-index: 3;
 }
 
@@ -272,8 +272,8 @@ body {
     position: absolute;
     max-width: 380px;
     z-index: 3;
-    bottom: 10%;
-    left: 0.5rem;
+    bottom: 12%;
+    left: 2rem;
 }
 
 .product-name {
@@ -323,8 +323,8 @@ body {
 .buy-button-container {
     position: absolute;
     z-index: 3;
-    bottom: 10%;
-    right: 5%;
+    bottom: 12%;
+    right: 7%;
 }
 
 .buy-button {
@@ -388,10 +388,10 @@ body {
 .product-image {
     position: absolute;
     top: 50%;
-    left: 45%;
-    transform: translate(-30%, -50%);
-    width: 50%;
-    max-height: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-height: 70%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -402,22 +402,41 @@ body {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .background-text {
     position: absolute;
     top: 50%;
-    left: -5%;
+    left: 0;
     right: 0;
-    transform: translateY(-50%);
+    transform: translateY(0);
     text-align: center;
     font-family: 'Floreste Wavy';
     font-size: 9rem;
-    opacity: 0.1;
+    opacity: 0.04;
     color: #fff;
     z-index: 1;
     white-space: nowrap;
     letter-spacing: 0.05em;
+}
+
+/* Expanded product styles */
+.expanded-product.pink .background-text,
+.expanded-product.blue .background-text {
+    opacity: 0.05;
 }
 
 /* Side products positioning */
@@ -442,8 +461,8 @@ body {
     border-radius: 35px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    height: calc(100vh - 20px);
-    top: 0;
+    height: calc(100vh - 40px);
+    top: 20px;
 }
 
 .side-product.pink {
@@ -465,8 +484,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
-    height: 70%;
+    width: 65%;
+    height: 65%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -476,6 +495,7 @@ body {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    animation: float 6s ease-in-out infinite;
 }
 
 .side-product-footer {
@@ -512,10 +532,10 @@ body {
     transform: translateX(-30px) scale(0.95);
     top: 0;
     left: 0;
-    width: calc(100% - 440px);
+    width: calc(100% - 450px);
     height: 100%;
-    z-index: 1;
-    padding: 6rem 1rem 2rem;
+    z-index: 3;
+    padding: 3rem 2rem 2rem;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -527,7 +547,7 @@ body {
 .product-main.active {
     opacity: 1;
     transform: translateX(0) scale(1);
-    z-index: 5;
+    z-index: 4;
 }
 
 /* Animation effect for content inside slides */
@@ -573,10 +593,10 @@ body {
 .compact-product {
     position: absolute;
     width: 220px;
-    height: calc(100vh - 20px);
+    height: calc(100vh - 40px);
     transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 5;
-    top: 0;
+    top: 20px;
     pointer-events: auto;
     cursor: pointer;
     border-radius: 40px;
@@ -591,13 +611,13 @@ body {
 }
 
 .compact-product:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
 }
 
 /* Positioning for compact main product */
 .compact-product:not(.pink):not(.blue) {
-    left: 5px;
+    left: 10px;
     background-color: rgba(153, 102, 204, 0.8) !important;
 }
 
@@ -635,12 +655,12 @@ body {
 
 /* Additional reset styles for proper slide switching */
 .expanded-product {
-    transform: translateX(-30px);
+    transform: translateX(-30px) scale(0.95);
     opacity: 0;
 }
 
 .expanded-product.active {
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
     opacity: 1;
 }
 
@@ -663,4 +683,93 @@ body {
 .expanded-product.active .buy-button-container {
     opacity: 1;
     transition: opacity 0.4s ease-in-out 0.3s;
+}
+
+/* Fix for product tag positions */
+.expanded-product .product-tag,
+.product-main .product-tag {
+    top: 15%;
+    left: 2rem;
+    color: #FFFF00;
+}
+
+.expanded-product.pink .product-tag,
+.expanded-product.blue .product-tag {
+    color: white;
+}
+
+/* Ensure image is always centered */
+.product-main .product-image,
+.expanded-product .product-image {
+    position: absolute;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 60%;
+    max-height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* Dark background text */
+.background-text {
+    position: absolute;
+    top: 50% !important;
+    left: 0;
+    right: 0;
+    transform: translateY(0) !important;
+    text-align: center;
+    font-family: 'Floreste Wavy';
+    font-size: 9rem;
+    opacity: 0.025;
+    color: #fff;
+    z-index: 1;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+}
+
+.expanded-product.pink .background-text,
+.expanded-product.blue .background-text {
+    opacity: 0.028;
+}
+
+/* Side product image positioning */
+.side-product-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    height: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Z-index adjustment for active slides */
+.product-main.active, 
+.expanded-product.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    z-index: 4;
+}
+
+.expanded-product {
+    z-index: 3;
+}
+
+.side-product {
+    z-index: 5;
+}
+
+.compact-product {
+    z-index: 5;
+}
+
+/* Fix for compact product first slide */
+.compact-product:not(.pink):not(.blue) img {
+    max-width: 75%;
+    margin: 0 auto;
 } 
