@@ -17,6 +17,24 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('../fonts/EuclidCircularA-Regular.woff2') format('woff2'),
+        url('../fonts/EuclidCircularA-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Floreste Wavy';
+    src: url('../fonts/FloresteWavy.woff2') format('woff2'),
+        url('../fonts/FloresteWavy.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -25,31 +43,41 @@
 }
 
 body {
-    font-family: 'Le Murmure', sans-serif;
+    font-family: 'Euclid Circular A', sans-serif;
     line-height: 1.6;
     font-size: 14px;
+    background-color: #9966CC;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* Header styles */
 .header {
-    background-color: #9966CC;
+    background-color: transparent;
     color: #fff;
     padding: 0.75rem 0;
+    position: relative;
+    z-index: 20;
 }
 
 .header__container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    z-index: 15;
 }
 
 .header__left {
     display: flex;
     align-items: center;
     gap: 4rem;
+    position: relative;
+    z-index: 15;
 }
 
 .header__logo a {
@@ -70,10 +98,11 @@ body {
     display: flex;
     align-items: center;
     gap: 3rem;
+    position: relative;
+    z-index: 15;
 }
 
 .header__nav {
-    font-family: sans-serif;
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -90,6 +119,7 @@ body {
     font-size: 0.85rem;
     font-weight: 400;
     padding: 0.5rem 0;
+    font-family: 'Euclid Circular A';
 }
 
 .dots-icon {
@@ -113,16 +143,29 @@ body {
     transition: color 0.3s ease;
     font-size: 0.85rem;
     font-weight: 400;
+    font-family: 'Euclid Circular A';
 }
 
 .header__nav-link:hover, .header__catalog-btn:hover, .dot:hover {
     color: #ccc;
 }
 
+.header__search {
+    position: relative;
+    z-index: 15;
+    padding: 0.5rem 0rem;
+    margin: 0;
+    background-color: transparent;
+}
+
 .header__actions {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
+    position: relative;
+    z-index: 15;
+    padding: 0.5rem 0.5rem;
+    background-color: transparent;
 }
 
 .header__action-btn {
@@ -137,6 +180,7 @@ body {
     font-weight: 400;
     padding: 0.5rem;
     transition: color 0.3s ease;
+    font-family: 'Euclid Circular A';
 }
 
 .header__action-btn i {
@@ -147,6 +191,284 @@ body {
     color: #ccc;
 }
 
-.header__center .header__action-btn {
-    margin-left: 10rem;
+.header__search .header__action-btn,
+.header__actions .header__action-btn {
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.header__search:hover .header__action-btn,
+.header__actions:hover .header__action-btn {
+    color: #fff;
+}
+
+/* Main Content */
+.main {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.product-showcase {
+    display: flex;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.product-main {
+    flex: 1;
+    position: relative;
+    padding: 6rem 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-width: calc(100% - 440px);
+}
+
+.product-tag {
+    color: #FFFF00;
+    font-size: 0.85rem;
+    font-weight: 500;
+    position: absolute;
+    top: 35%;
+    left: 0;
+    z-index: 3;
+}
+
+.product-info {
+    position: absolute;
+    max-width: 380px;
+    z-index: 3;
+    bottom: 10%;
+    left: 0;
+}
+
+.product-name {
+    font-family: 'Euclid Circular A';
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.product-specs {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+}
+
+.product-description {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+}
+
+.product-separator {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 1.2rem;
+    width: 90%;
+}
+
+.product-price {
+    font-family: 'Floreste Wavy';
+    font-size: 1.8rem;
+    color: #FFFF00;
+    position: relative;
+    display: inline-block;
+}
+
+.price-currency {
+    font-size: 0.8rem;
+    position: absolute;
+    top: 0;
+    right: -1rem;
+}
+
+.buy-button-container {
+    position: absolute;
+    z-index: 3;
+    bottom: 10%;
+    right: 5%;
+}
+
+.buy-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: #FFFF00;
+    border: none;
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Euclid Circular A';
+    width: 180px;
+    position: relative;
+    z-index: 3;
+}
+
+.buy-button::before {
+    content: '';
+    position: absolute;
+    top: -35px;
+    left: -35px;
+    right: -35px;
+    bottom: -35px;
+    border: 1px solid #FFFF00;
+    border-radius: 50%;
+    transform: rotate(-15deg);
+    background-color: rgba(220, 220, 220, 0.2);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.buy-button::after {
+    content: '';
+    position: absolute;
+    top: -35px;
+    left: -35px;
+    right: -35px;
+    bottom: -35px;
+    border: 1px solid #FFFF00;
+    border-radius: 50%;
+    transform: rotate(3deg);
+    pointer-events: none;
+    z-index: -2;
+}
+
+.buy-button:hover {
+    background-color: transparent;
+}
+
+.product-image {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-30%, -50%);
+    width: 50%;
+    max-height: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.background-text {
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    right: 0;
+    transform: translateY(-50%);
+    text-align: center;
+    font-family: 'Floreste Wavy';
+    font-size: 9rem;
+    opacity: 0.1;
+    color: #fff;
+    z-index: 1;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+}
+
+/* Side products positioning */
+.side-products {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 470px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.side-product {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.side-product.pink {
+    background-color: rgba(255, 105, 180, 0.8);
+    height: calc(100vh - 20px);
+    top: 10px;
+    right: 245px;
+    z-index: 5;
+}
+
+.side-product.blue {
+    background-color: rgba(135, 206, 250, 0.8);
+    height: calc(100vh - 20px);
+    top: 10px;
+    right: 10px;
+    z-index: 5;
+}
+
+.side-product-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.side-product-footer {
+    position: absolute;
+    bottom: 8%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+    z-index: 2;
+}
+
+.side-product-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.side-product-number {
+    font-family: 'Floreste Wavy';
+    font-size: 3.5rem;
+    line-height: 1;
 } 

@@ -1,17 +1,8 @@
 @font-face {
-    font-family: 'Le Murmure';
-    src: url('LeMurmure-Regular.woff2') format('woff2'),
-        url('LeMurmure-Regular.woff') format('woff');
+    font-family: 'Floreste Wavy';
+    src: url('FloresteWavy.woff2') format('woff2'),
+        url('FloresteWavy.woff') format('woff');
     font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Le Murmure';
-    src: url('LeMurmure-Regular.woff2') format('woff2'),
-        url('LeMurmure-Regular.woff') format('woff');
-    font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
