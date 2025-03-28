@@ -149,7 +149,7 @@ body {
     
 }
 
-.header__nav-link:hover, .header__catalog-btn:hover, .dot:hover {
+.header__nav-link:hover, .header__catalog-btn:hover, .dot:hover, .header__action-btn:hover, .header__search:hover {
     color: #ccc;
 }
 
@@ -204,7 +204,7 @@ body {
 
 .header__search:hover .header__action-btn,
 .header__actions:hover .header__action-btn {
-    color: #fff;
+    color: #cbcbcb;
 }
 
 /* Main Content */
@@ -238,14 +238,14 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    max-width: calc(100% - 450px);
-    width: calc(100% - 450px);
+    max-width: calc(100% - 500px);
+    width: calc(100% - 500px);
     height: 100%;
     top: 0;
     left: 0;
     opacity: 0;
     transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
-    transform: translateX(-30px) scale(0.95);
+    transform: translateX(-30px);
     border-radius: 35px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     background-color: rgba(153, 102, 204, 0.95);
@@ -254,8 +254,8 @@ body {
 
 .product-main.active {
     opacity: 1;
-    transform: translateX(0) scale(1);
-    z-index: 5;
+    transform: translateX(0);
+    z-index: 4;
 }
 
 .product-tag {
@@ -263,7 +263,7 @@ body {
     font-size: 0.85rem;
     font-weight: 500;
     position: absolute;
-    top: 8%;
+    top: 45%;
     left: 2rem;
     z-index: 3;
 }
@@ -419,24 +419,24 @@ body {
 
 .background-text {
     position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(0);
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
     text-align: center;
     font-family: 'Floreste Wavy';
     font-size: 9rem;
-    opacity: 0.04;
+    opacity: 0.025;
     color: #fff;
     z-index: 1;
     white-space: nowrap;
     letter-spacing: 0.05em;
+    width: 100%;
 }
 
 /* Expanded product styles */
 .expanded-product.pink .background-text,
 .expanded-product.blue .background-text {
-    opacity: 0.05;
+    opacity: 0.028;
 }
 
 /* Side products positioning */
@@ -529,10 +529,10 @@ body {
     position: absolute;
     transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
     opacity: 0;
-    transform: translateX(-30px) scale(0.95);
+    transform: translateX(-30px);
     top: 0;
     left: 0;
-    width: calc(100% - 450px);
+    width: calc(100% - 500px);
     height: 100%;
     z-index: 3;
     padding: 3rem 2rem 2rem;
@@ -543,10 +543,9 @@ body {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
-.expanded-product.active, 
-.product-main.active {
+.expanded-product.active {
     opacity: 1;
-    transform: translateX(0) scale(1);
+    transform: translateX(0);
     z-index: 4;
 }
 
@@ -655,12 +654,12 @@ body {
 
 /* Additional reset styles for proper slide switching */
 .expanded-product {
-    transform: translateX(-30px) scale(0.95);
+    transform: translateX(-30px);
     opacity: 0;
 }
 
 .expanded-product.active {
-    transform: translateX(0) scale(1);
+    transform: translateX(0);
     opacity: 1;
 }
 
@@ -688,7 +687,7 @@ body {
 /* Fix for product tag positions */
 .expanded-product .product-tag,
 .product-main .product-tag {
-    top: 15%;
+    top: 35%;
     left: 2rem;
     color: #FFFF00;
 }
@@ -702,7 +701,7 @@ body {
 .product-main .product-image,
 .expanded-product .product-image {
     position: absolute;
-    top: 50% !important;
+    top: 60% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
     width: 60%;
@@ -711,28 +710,6 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 2;
-}
-
-/* Dark background text */
-.background-text {
-    position: absolute;
-    top: 50% !important;
-    left: 0;
-    right: 0;
-    transform: translateY(0) !important;
-    text-align: center;
-    font-family: 'Floreste Wavy';
-    font-size: 9rem;
-    opacity: 0.025;
-    color: #fff;
-    z-index: 1;
-    white-space: nowrap;
-    letter-spacing: 0.05em;
-}
-
-.expanded-product.pink .background-text,
-.expanded-product.blue .background-text {
-    opacity: 0.028;
 }
 
 /* Side product image positioning */
