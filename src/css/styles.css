@@ -256,6 +256,14 @@ body {
     opacity: 1;
     transform: translateX(0);
     z-index: 4;
+    box-shadow: none;
+    border: none;
+}
+
+.product-main.active .buy-button::before,
+.product-main.active .buy-button::after {
+    border: 1px solid #FFFF00;
+    background-color: rgba(220, 220, 220, 0.2);
 }
 
 .product-tag {
@@ -325,6 +333,7 @@ body {
     z-index: 3;
     bottom: 12%;
     right: 7%;
+    pointer-events: auto;
 }
 
 .buy-button {
@@ -344,6 +353,7 @@ body {
     width: 180px;
     position: relative;
     z-index: 3;
+    pointer-events: auto;
 }
 
 .buy-button::before {
@@ -383,6 +393,18 @@ body {
 
 .buy-button:hover::after {
     transform: rotate(6deg) scale(1.05);
+}
+
+.buy-button:active {
+    transform: scale(0.95);
+}
+
+.buy-button:active::before {
+    transform: rotate(-18deg) scale(0.95);
+}
+
+.buy-button:active::after {
+    transform: rotate(6deg) scale(0.95);
 }
 
 .product-image {
@@ -426,7 +448,7 @@ body {
     font-family: 'Floreste Wavy';
     font-size: 9rem;
     opacity: 0.025;
-    color: #fff;
+    color: #FFFF;
     z-index: 1;
     white-space: nowrap;
     letter-spacing: 0.05em;
@@ -538,15 +560,17 @@ body {
     padding: 3rem 2rem 2rem;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: visible;
     border-radius: 35px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
 }
 
 .expanded-product.active {
     opacity: 1;
     transform: translateX(0);
     z-index: 4;
+    pointer-events: auto;
 }
 
 /* Animation effect for content inside slides */
@@ -636,20 +660,47 @@ body {
 .expanded-product.pink .buy-button::before,
 .expanded-product.pink .buy-button::after,
 .expanded-product.pink .product-price {
-    color: #fff;
-    border-color: #fff;
+    color: #FFFF00;
+    border-color: #FFFF00;
+    pointer-events: auto;
+}
+
+.expanded-product.pink .buy-button::before,
+.expanded-product.pink .buy-button::after {
+    border: 1px solid #FFFF00;
+    background-color: rgba(220, 220, 220, 0.2);
+    pointer-events: none;
 }
 
 .expanded-product.blue .buy-button,
 .expanded-product.blue .buy-button::before,
 .expanded-product.blue .buy-button::after,
 .expanded-product.blue .product-price {
-    color: #fff;
-    border-color: #fff;
+    color: #FFFF00;
+    border-color: #FFFF00;
+    pointer-events: auto;
+}
+
+.expanded-product.blue .buy-button::before,
+.expanded-product.blue .buy-button::after {
+    border: 1px solid #FFFF00;
+    background-color: rgba(220, 220, 220, 0.2);
+    pointer-events: none;
+}
+
+/* Hover animation for buy button on all slides */
+.expanded-product.pink .buy-button:hover::before,
+.expanded-product.blue .buy-button:hover::before {
+    transform: rotate(-18deg) scale(1.05);
+}
+
+.expanded-product.pink .buy-button:hover::after,
+.expanded-product.blue .buy-button:hover::after {
+    transform: rotate(6deg) scale(1.05);
 }
 
 .expanded-product .product-tag {
-    color: #fff;
+    color: #FFFF00;
 }
 
 /* Additional reset styles for proper slide switching */
@@ -694,7 +745,7 @@ body {
 
 .expanded-product.pink .product-tag,
 .expanded-product.blue .product-tag {
-    color: white;
+    color: #FFFF00;
 }
 
 /* Ensure image is always centered */
